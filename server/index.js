@@ -1,10 +1,12 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
-// const mongoose = require('mongoose')
-
+const mongoose = require('mongoose')
 require('dotenv').config()
 
 const app = express()
+mongoose.connect(process.env.MONGO_DEV, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+	console.log(`<< ${new Date().toUTCString()} >> Database connection successful`)
+})
 
 app.use(express.json());
 app.use(cookieParser())
