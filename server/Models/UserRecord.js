@@ -5,6 +5,10 @@ const recordModel = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	vaccines: {
+		type: Array,
+		required: true,
+	},
 });
 
 module.exports = mongoose.model("userRecord", recordModel);
