@@ -40,13 +40,12 @@ router.get("/refresh", (req, res) => {
 });
 
 /**
- * Refresh user tokens
- *
+ * Refresh user access tokens
  */
 router.post("/refresh", (req, res) => {
 	const { refreshToken } = req.body;
 	if (!refreshToken) {
-		res.status(400).json({
+		return res.status(400).json({
 			status: "error",
 			error: "Missing refresh token",
 		});

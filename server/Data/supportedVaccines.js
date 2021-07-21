@@ -1,7 +1,7 @@
 // list of supported vaccines
 
 const covid_19 = {
-	disease: "COVID 19",
+	disease: "COVID-19",
 	vaccines: [
 		{
 			name: "Pfizer-BioNTech",

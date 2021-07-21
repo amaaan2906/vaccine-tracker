@@ -17,8 +17,10 @@ app.use(cookieParser());
 
 const authRoute = require("./Routes/auth");
 app.use("/auth/v1/", authRoute);
-const apiRoute = require("./Routes/api");
-app.use("/api/v1/", apiRoute);
+const userRoute = require("./Routes/api/user");
+app.use("/api/v1/user", userRoute);
+const dataRoute = require("./Routes/api/data");
+app.use("/api/v1/data", dataRoute);
 
 app.get("/", (req, res) => {
 	res.status(200).json({
@@ -32,5 +34,7 @@ app.listen(PORT, () => {
 	console.log(`<< ${new Date().toUTCString()} >> Server Boot ${PORT}`);
 	setInterval(() => {
 		console.log(`<< ${new Date().toUTCString()} >> Running daily checks`);
+		// check all external connections
+		// check if database is connected and working
 	}, 1000 * 60 * 60 * 24);
 });
